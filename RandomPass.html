@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Strong Random Password Generator</title>
+    <style>
+      * {
+        font-family: "Courier New", Courier, monospace;
+        margin: 0;
+        padding: 0;
+        user-select: none;
+      }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+      .inputbox {
+        position: relative;
+        width: 50%;
+      }
+      .inputbox h2 {
+        font-size: 33px;
+        color: #444;
+      }
+      input {
+        position: relative;
+        border: none;
+        font-size: 20px;
+        width: 50%;
+        outline: none;
+        letter-spacing: 3px;
+        margin: 15px 0 20px;
+        box-sizing: border-box;
+        border-radius: 8px;
+        padding: 10px 20px;
+        box-shadow: -4px -4px 10px rgb(0, 0, 0, 0.25),
+          4px 4px 10px rgb(0, 0, 0, 0.25);
+      }
+
+      #btn {
+        background: #444;
+        width: fit-content;
+        padding: 10px 20px;
+        box-sizing: border-box;
+        border-radius: 5px;
+        color: white;
+        cursor: pointer;
+      }
+      #btn:active {
+        background: deeppink;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="inputbox">
+      <h2>Create a random password</h2>
+      <input
+        type="text"
+        placeholder="Create Passsword"
+        id="password"
+        readonly=""
+      />
+      <div id="btn" onclick="btnclick()">Generate Password</div>
+    </div>
+    <script>
+      function btnclick() {
+        var chars = "1234567890abcdefghijklmnopqrstuvwxyz@#!$%&*~";
+        var len = 8;
+        var password = "";
+        for (var i = 0; i < len; i++) {
+          var ran = Math.floor(Math.random() * chars.length);
+          password += chars.substring(ran, ran + 1);
+        }
+        document.getElementById("password").value = password;
+      }
+    </script>
+  </body>
+</html>
